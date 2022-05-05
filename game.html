@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIK TAc TOE</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-image: linear-gradient(to left,#7500b9,#ffb320);
+    }
+    .grid {
+        margin: auto;
+        height: 600px;
+        width: 600px;
+        background-image: url(images/grid.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* position: relative;
+        left: 50%;
+        transform: translate(-50%,0); */
+        display: inline-block;
+
+    }
+
+    .flex {
+        display: flex;
+        margin: 35px;
+
+
+    }
+    .state{
+        margin: auto;
+    }
+    .playbox {
+        height: 180px;
+        width: 180px;
+        margin: -10px 20px;
+        padding: 9px;
+
+
+
+    }
+
+    img {
+        width: 120px;
+        height: 150px;
+    }
+    .title{
+        font-family: 'Comforter', cursive;
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 80px;
+        margin-bottom: 30px;
+        text-shadow: 1px 2px 5px #ffb320;
+    }
+    .but{
+        font-size: 30px;
+        width: 180px;
+        height: 50px;
+        border-radius: 20px;
+        background-color: #ffb320;
+        color: black;
+        transition: 0.4s;
+    }
+    #status{
+        font-size: 40px;
+        color: #000000;
+        text-shadow: 1px 2px 5px #ffb320;
+    }
+    .sec1{
+        display: flex;
+        justify-content: space-around;
+    }
+    .but:hover{
+        transform: scale(1.1);
+        transition: 0.4s;
+        box-shadow: 3px 3px 3px;
+    }
+
+</style>
+
+<body>
+    <h1 class="title">Tic Tac Toe</h1>
+    <section class="sec1">
+        <div class="grid">
+            <div class="flex">
+                <div class="playbox" id="1" onclick="chance(1,'1')"></div>
+                <div class="playbox" id="2" onclick="chance(2,'2')"></div>
+                <div class="playbox" id="3" onclick="chance(3,'3')"></div>
+            </div>
+            <div class="flex">
+                <div class="playbox" id="4" onclick="chance(4,'4')"></div>
+                <div class="playbox" id="5" onclick="chance(5,'5')"></div>
+                <div class="playbox" id="6" onclick="chance(6,'6')"></div>
+            </div>
+            <div class="flex">
+                <div class="playbox" id="7" onclick="chance(7,'7')"></div>
+                <div class="playbox" id="8" onclick="chance(8,'8')"></div>
+                <div class="playbox" id="9" onclick="chance(9,'9')"></div>
+            </div>
+
+        </div>
+        <div class="state">
+            <h1 id="status">O's Turn</h1>
+            <br>
+            <br>
+            <button onclick="reset()" class="but"> Reset</button>
+        </div>
+    </section>
+    <script>
+        var arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var player = 0;
+        var ctr = 0;
+        var win = false;
+        function chance(n, id) {
+            var status = document.getElementById("status");
+            var div = document.getElementById(id);
+            if (arr[n - 1] == 0 && ctr < 9) {
+
+               arr[n - 1] = player + 1;
+                if (player == 0) {
+                    div.innerHTML = "<img src='images/o.png'>";
+                    ctr += 1;
+                    player = 1;
+                    status.innerHTML = "X's turn"
+                }
+                else if (player == 1) {
+
+                    div.innerHTML = "<img src='images/x.png'>";
+                    ctr += 1;
+                    player = 0;
+                    status.innerHTML = "O's turn"
+                }
+
+            }
+            else {
+                status.innerHTML = "u clicked on a filled block";
+
+            }
+            if ((arr[0] == arr[1] && arr[1] == arr[2] && arr[2] == 1) || (arr[3] == arr[4] && arr[4] == arr[5] && arr[5] == 1) || (arr[6] == arr[7] && arr[7] == arr[8] && arr[8] == 1) || (arr[0] == arr[3] && arr[3] == arr[6] && arr[6] == 1) || (arr[1] == arr[4] && arr[4] == arr[7] && arr[7] == 1) || (arr[2] == arr[5] && arr[5] == arr[8] && arr[8] == 1) || (arr[0] == arr[4] && arr[4] == arr[8] && arr[8] == 1) || (arr[2] == arr[4] && arr[4] == arr[6] && arr[6] == 1)) {
+                status.innerHTML = "O wins, Game Over";
+                ctr = 9;
+                win= true;
+            }
+            if((arr[0]== arr[1] && arr[1]==arr[2] && arr[2]==2 ) || (arr[3]== arr[4] && arr[4]==arr[5] && arr[5]==2) || (arr[6]== arr[7] && arr[7]==arr[8] && arr[8]==2) ||(arr[0]== arr[3] && arr[3]==arr[6] && arr[6]==2) || (arr[1]== arr[4] && arr[4]==arr[7] && arr[7]==2) || (arr[2]== arr[5] && arr[5]==arr[8] && arr[8]==2) || (arr[0]== arr[4] && arr[4]==arr[8] && arr[8]==2) || (arr[2]== arr[4] && arr[4]==arr[6] && arr[6]==2)){
+                status.innerHTML="X wins, Game Over";
+                ctr=9;
+                win=true;
+            }
+            if(ctr==9 && win==false){
+                status.innerHTML='its a draw, game over';
+
+            }
+            
+
+        
+
+        }
+        function reset(){
+            arr=[0,0,0,0,0,0,0,0,0];
+            ctr=0;
+            player=0;
+            win=false;
+            document.getElementById('status').innerHTML="O's turn";
+            document.getElementById('1').innerHTML="";
+            document.getElementById('2').innerHTML="";
+            document.getElementById('3').innerHTML="";
+            document.getElementById('4').innerHTML="";
+            document.getElementById('5').innerHTML="";
+            document.getElementById('6').innerHTML="";
+            document.getElementById('7').innerHTML="";
+            document.getElementById('8').innerHTML="";
+            document.getElementById('9').innerHTML="";
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

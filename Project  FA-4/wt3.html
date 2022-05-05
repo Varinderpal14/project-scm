@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="CSS/loader.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTAV Walkthrough</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .navbar{
+        background-color: rgb(20, 11, 66);
+        height: 3.5em;
+        
+    }
+    .navbar ul{
+        display: flex;
+        justify-content: center;
+    }
+    .navbar ul li{
+        list-style: none;
+        color: white;
+        padding: 11px;
+        font-size: 30px;
+        
+        
+    }
+    .container{
+        background: url("images/Mz3heMHRTTD6GRa45ikjLC.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+       height: 100vh;
+       opacity: 0.85;
+    }
+    .container-2{
+        background: url("images/838a4082-6fab-4fba-9287-1a25ff93ed3a.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+       height: 100vh;
+       opacity: 0.85;
+    }
+    h2{
+        font-family: 'Baloo Bhaijaan 2', cursive;
+        font-weight: bolder;
+        font-size: 30px;
+        background-color: black;
+        border-radius: 20px;
+        color: white;
+        text-align: center;
+        width: 50%;
+    }
+    .walkthrough{
+        font-family: 'Baloo Bhaijaan 2', cursive;
+        color: white;
+        font-size: 30px;
+        display: block;
+        float: left;
+        width: 60%;
+        margin-left: 30px;
+    }
+
+    .video-link{
+        display: block;
+        float: right;
+    }
+    .ending{
+        font-size: 30px;
+    }
+    .block {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        margin-right: 30px;
+        margin-top: 30px;
+        padding-left: 40px;
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="text">
+          Learn and Complete!!
+        </div>
+        <div class="title">
+          LET'S DO IT
+        </div>
+        <div class="bar">
+          <div id="fill">
+          </div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul>
+            <li>Call Of Duty Walkthrough</li>
+        </ul>
+    </nav>
+    <div class="container-2"><br>
+        <div class="box"><h2>Call Of Duty complete walkthrough
+        </h2>
+        <ul class="walkthrough" type="square">
+            <div class="block">
+            <li>Call of Duty: Modern Warfare is a 2019 first-person shooter game developed by Infinity Ward and published by Activision. Serving as the sixteenth overall installment in the Call of Duty series, as well as a reboot of the Modern Warfare sub-series,[2][3][4] it was released on October 25, 2019, for Microsoft Windows, PlayStation 4, and Xbox One.</li>
+        </ul>
+        </div>
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Q0Wy_fjXLdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+    <nav class="navbar">
+        <ul>
+            <li>The Last Of Us Walkthrough</li>
+        </ul>
+    </nav>
+    <div class="container"><br>
+        <div class="box"><h2>The Last Of Us complete walkthrough
+        </h2>
+        <ul class="walkthrough" type="square">
+            <div class="block">
+            <li>“Man is the cruelest animal." This walkthrough for The Last of Us includes everything that is key for the stress-free completion of the game. Embark on a unique journey for survival in this brand new action adventure from Naughty Dog, creators of the acclaimed UNCHARTED series.</li>
+        </ul>
+        </div>
+       
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/aLg98S4sxsE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        
+    </div>
+</div>
+   
+    <script type="text/javascript">
+        var progess = 0;
+        document.onreadystatechange = function () {
+          if (document.readyState == "interactive") {
+            var allElement = $("*");
+            var length = allElement.length;
+            for (var i = 0; i < length; i++) {
+              set_element(allElement[i], length);
+            }
+          }
+        }
+        function set_element(element, totalElement) {
+          var percentage = 1000 / totalElement;
+          if ($(element).length == 1) {
+            $("#fill").animate({ width: progess + percentage + "%" }, 2000, function () {
+              if (document.getElementById("fill").style.width == "100%");
+              {
+                $(".main").fadeOut(500);
+              }
+            });
+            progess = progess + percentage;
+          }
+        }
+      </script>
+
+</body>
+</html>
