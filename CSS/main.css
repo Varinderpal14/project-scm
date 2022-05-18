@@ -157,7 +157,7 @@ nav ul li a:hover {
 nav ul li:hover .sub-menu-1{
     display: block;
     position: absolute;
-    background:rgba(0, 0, 0, 0.8);
+    background:rgba(0, 0, 0, 0.7);
     margin-top: 2px;
     margin-left: -15px;
     margin-right: 350px;
